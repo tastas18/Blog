@@ -1,0 +1,29 @@
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+{% if user.is_authenticated %}
+    <h1>Add Post...</h1>
+    <br/><br/>
+
+    <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.media}}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Post</button>
+      
+
+    <script>
+        let name = "{{ user.id }}";
+        document.getElementById("elder").value = name ;
+    </script>
+    
+</form>
+    </div>
+{% else %}
+
+You are not allowed here!
+
+{% endif %}
